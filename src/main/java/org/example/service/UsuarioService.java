@@ -9,7 +9,7 @@ import java.util.List;
 public class UsuarioService {
     private List<Usuario> listaUsuarios;
 
-    public List<UsuarioDTOOutput> getTodosUsuarios(){
+    public List<UsuarioDTOOutput> listarUsuarios(){
         //usar listaUsuarios e ModelMapper
         return null;
     }
@@ -19,30 +19,30 @@ public class UsuarioService {
         return null;
     }
 
-//    public void addNovoUsuario(UsuarioDTOInput usuario){
-//      usar ModelMapper e listaUsuarios
-//        try{
-//
-//        }catch{
-//
-//        }
-//    }
-//
-//    public void changeUsuario(UsuarioDTOInput usuario){
-//        usar ModelMapper e listaUsuarios
-//        try{
-//
-//        }catch{
-//
-//        }
-//    }
-//
-//    public void deleteUsuario(int id){
-    // usar listaUsuarios e Usuario
-//        try{
-//
-//        }catch{
-//
-//        }
-//    }
+    public void addNovoUsuario(UsuarioDTOInput usuario){
+      //usar ModelMapper e listaUsuarios
+        try{
+
+        }catch{
+
+        }
+    }
+
+    public void changeUsuario(UsuarioDTOInput usuario){
+        //usar ModelMapper e listaUsuarios
+        try{
+
+        }catch{
+
+        }
+    }
+
+    public void deleteUsuario(int id){
+     //usar listaUsuarios e Usuario
+        try{
+
+        }catch{
+
+        }
+    }
 }
