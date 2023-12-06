@@ -24,7 +24,7 @@ public class ServiceTest {
 
     @Test
     public void testarListarUsuarios() throws IOException {
-        URL urlObj = new URL("https://randomuser.me/api/");
+        URL urlObj = new URL("http://localhost:4567/usuarios");
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
         connection.setRequestMethod("GET");
         int responseCode = connection.getResponseCode();
