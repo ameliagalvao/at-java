@@ -7,6 +7,10 @@ import org.example.service.UsuarioService;
 import static spark.Spark.*;
 
 public class UsuarioController {
+
+    public UsuarioController(){
+        respostaRequisicoes();
+    }
     private final UsuarioService usuarioService = new UsuarioService();
     private final ObjectMapper objectMapper = new ObjectMapper();
     public void respostaRequisicoes (){
