@@ -24,7 +24,7 @@ public class ServiceTest {
 
     @Test
     public void testarListarUsuarios() throws IOException {
-        URL urlObj = new URL("http://127.0.01/usuarios");
+        URL urlObj = new URL("https://randomuser.me/api/");
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
         connection.setRequestMethod("GET");
         int responseCode = connection.getResponseCode();
@@ -33,7 +33,7 @@ public class ServiceTest {
 
     @Test
     public void testarAddUsuarioComHttpUrlConnection() throws IOException {
-        URL urlObj = new URL("http://127.0.01/usuarios");
+        URL urlObj = new URL("https://randomuser.me/api/");
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
         connection.setRequestMethod("GET");
         int responseCode = connection.getResponseCode();

@@ -6,10 +6,10 @@ import org.example.model.Usuario;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 
-import java.util.List;
+import java.util.*;
 
 public class UsuarioService {
-    private List<Usuario> listaUsuarios;
+    private List<Usuario> listaUsuarios = new ArrayList<>();
     private final ModelMapper modelMapper = new ModelMapper();
 
     public List<UsuarioDTOOutput> listarUsuarios() {
