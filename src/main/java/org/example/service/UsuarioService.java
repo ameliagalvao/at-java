@@ -16,10 +16,13 @@ public class UsuarioService {
         return modelMapper.map(listaUsuarios, new TypeToken<List<UsuarioDTOOutput>>() {}.getType());
     }
 
-    public UsuarioDTOOutput searchUsuario(int id){
-        //usar listaUsuarios, Usuario, UsuarioDTOOutput, ModelMapper.
-        //todo
-        return null;
+    public UsuarioDTOOutput searchUsuario(int id) throws Exception {
+        for (int i = 0; i < listaUsuarios.size(); i++){
+            Usuario usuario = listaUsuarios.get(i);
+            if (usuario.getId() == id){
+                return modelMapper.map(usuario, UsuarioDTOOutput.class);
+            }
+        } throw new Exception("Usuário não encontrado.");
     }
 
     public void addNovoUsuario(UsuarioDTOInput usuarioDTOInput){
@@ -29,7 +32,13 @@ public class UsuarioService {
 
     public void changeUsuario(UsuarioDTOInput usuarioDTOInput){
         Usuario usuario = modelMapper.map(usuarioDTOInput, Usuario.class);
-        //todo
+        for (int i = 0; i < listaUsuarios.size(); i++){
+            Usuario usuarioDaLista = listaUsuarios.get(i);
+            if (usuarioDaLista.getId() == usuario.getId()){
+                listaUsuarios.set(i, usuario);
+                return;
+            }
+        }
     }
 
     public void deleteUsuario(int id){
