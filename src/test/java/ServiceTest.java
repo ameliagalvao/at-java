@@ -1,4 +1,6 @@
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.dto.Results;
 import org.example.dto.UsuarioDTOInput;
 import org.example.service.UsuarioService;
 import org.junit.Assert;
@@ -38,6 +40,7 @@ public class ServiceTest {
         connection.setRequestMethod("GET");
         int responseCode = connection.getResponseCode();
         UsuarioDTOInput usuarioDTOInput;
+
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer response = new StringBuffer();
@@ -46,11 +49,15 @@ public class ServiceTest {
                 response.append(line);
             }
             ObjectMapper objectMapper = new ObjectMapper();
-            usuarioDTOInput = objectMapper.readValue(response.toString(), UsuarioDTOInput.class);
 
-            usuarioService.addNovoUsuario(usuarioDTOInput);
-            int tamanho = usuarioService.listarUsuarios().size();
-            Assert.assertEquals(1, tamanho);
+            Results results = objectMapper.readValue(response.toString(), Results.class);
+
+            if (!results.results.isEmpty()) {
+                usuarioDTOInput = results.results.get(0);
+                usuarioService.addNovoUsuario(usuarioDTOInput);
+                int tamanho = usuarioService.listarUsuarios().size();
+                Assert.assertEquals(1, tamanho);
+            }
         }
     }
 }
